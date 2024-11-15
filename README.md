@@ -1,4 +1,4 @@
-# NetsSuite to Shopify Product - Lambda
+# NetSuite to Shopify Product - Lambda
 
 > This is an AWS Lambda to create Shopify Products from NetSuite Items. It leverages the AWS Cloud Development Kit (CDK) for streamlined deployment on AWS.
 
