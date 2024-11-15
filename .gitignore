@@ -1,6 +1,7 @@
 *.js
 !jest.config.js
 *.d.ts
+!/lib/types/**/*.d.ts
 node_modules
 
 # CDK asset staging directory
@@ -33,3 +34,4 @@ Icon
 Network Trash Folder
 Temporary Items
 .apdisk
+.env

@@ -1,17 +1,44 @@
+import { shopifyProduct, verifyRequest } from '../helpers/index.js';
+import { createShopifyProductUrl } from '../utils/shopify.js';
+import type { NetSuiteItem } from '../types/index.js';
+
+type EventBody = {
+  shopifyStore: string;
+  product: NetSuiteItem;
+};
+
 export const handler = async (event: any) => {
-  // Extract specific properties from the event object
-  const { resource, path, httpMethod, headers, queryStringParameters, body } =
-    event;
-  const response = {
-    resource,
-    path,
-    httpMethod,
-    headers,
-    queryStringParameters,
-    body,
-  };
-  return {
-    body: JSON.stringify(response, null, 2),
-    statusCode: 200,
-  };
+  console.log('event:', event);
+  const hmac = event.headers['X-ShopifyProduct-Hmac-Sha256'];
+  console.log('hmac:', hmac);
+  const rawBody = event.body;
+  console.log('rawBody:', rawBody);
+  if (!verifyRequest(hmac, rawBody)) {
+    return {
+      body: JSON.stringify({ error: 'Request verification failed' }),
+      statusCode: 403,
+    };
+  }
+
+  const body = JSON.parse(event.body);
+  const { shopifyStore, product } = body as EventBody;
+
+  try {
+    const response = await shopifyProduct(shopifyStore, product);
+    return {
+      body: JSON.stringify({
+        product: {
+          url: createShopifyProductUrl(shopifyStore, response),
+          legacyResourceId: response,
+        },
+      }),
+      statusCode: 200,
+    };
+  } catch (err: any) {
+    console.error(err);
+    return {
+      body: JSON.stringify({ error: err.message }),
+      statusCode: 500,
+    };
+  }
 };

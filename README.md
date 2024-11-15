@@ -1,6 +1,6 @@
-# AWS CDK Lambda Boilerplate
+# NetsSuite to Shopify Product - Lambda
 
-This is a blank project for CDK development with TypeScript.
+> This is an AWS Lambda to create Shopify Products from NetSuite Items. It leverages the AWS Cloud Development Kit (CDK) for streamlined deployment on AWS.
 
 The `cdk.json` file tells the CDK Toolkit how to execute your app.
 
@@ -27,3 +27,17 @@ To define your CDK, stack follow the instructions for your preferred programming
 - The location of the function code, specified in the code property. For more information, see Handler code in the AWS Cloud Development Kit (AWS CDK) API Reference.
 - The REST API's logical name: HelloApi
 - The API Gateway endpoint's logical name: ApiGwEndpoint
+
+## Setup
+
+[Dependency Bundling](./BUNDLE.md)
+
+## Deploy
+
+```bash
+npm run build
+cdk synth
+cdk deploy # endpoint will be in output
+# destroy if needed
+cdk destroy
+```
