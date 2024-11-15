@@ -2,6 +2,8 @@
 
 > This is an AWS Lambda to create Shopify Products from NetSuite Items. It leverages the AWS Cloud Development Kit (CDK) for streamlined deployment on AWS.
 
+This is the "backend" for the [NetSuite Item to Shopify Product - SuiteLet](https://github.com/SuavecitoInc/netsuite-item-to-shopify-product-suitelet).
+
 The `cdk.json` file tells the CDK Toolkit how to execute your app.
 
 ## Useful commands
