@@ -15,7 +15,7 @@ export class NetsuiteToShopifyProductStack extends cdk.Stack {
 
     const endpoint = new apigw.LambdaRestApi(this, `ApiGwEndpoint`, {
       handler: fn,
-      restApiName: `HelloApi`,
+      restApiName: `ProductCreate`,
     });
   }
 }
