@@ -1,6 +1,6 @@
-import { shopifyProduct, verifyRequest } from '../helpers/index.js';
-import { createShopifyProductUrl } from '../utils/shopify.js';
-import type { NetSuiteItem } from '../types/index.js';
+import { shopifyProduct, verifyRequest } from '../helpers/index';
+import { createShopifyProductUrl } from '../utils/shopify';
+import type { NetSuiteItem } from '../types/index';
 
 type EventBody = {
   shopifyStore: string;

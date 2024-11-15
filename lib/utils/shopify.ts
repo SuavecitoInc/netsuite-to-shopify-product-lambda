@@ -1,5 +1,5 @@
 import fetch from 'node-fetch';
-import shopifyConfig from '../config/shopify.js';
+import shopifyConfig from '../config/shopify';
 
 type ShopifyResponse<T> = {
   // status: number;

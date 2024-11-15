@@ -37,3 +37,4 @@ Temporary Items
 .env
 
 lib/config/stores.ts
+lib/config/config.ts

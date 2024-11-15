@@ -2,7 +2,7 @@ import { config } from 'dotenv';
 import * as crypto from 'crypto';
 config();
 
-export * from './shopify/index.js';
+export * from './shopify/index';
 
 export function verifyRequest(hmac: string, rawBody: string) {
   const key = process.env.SECRET_KEY;

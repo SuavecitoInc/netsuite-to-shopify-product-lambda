@@ -32,6 +32,56 @@ To define your CDK, stack follow the instructions for your preferred programming
 
 ## Setup
 
+Environmental Variables
+
+`.env`
+
+```bash
+# shopify
+SHOPIFY_API_VERSION=2024-07 # shopify admin api version
+SECRET_KEY= # random string used for hash / digest
+SHOPIFY_RETAIL_STORE= # the shopify store name without the .myshopify.com
+SHOPIFY_RETAIL_API_KEY= # shopify admin api token
+SHOPIFY_WHOLESALE_STORE= # the shopify store name without the .myshopify.com
+SHOPIFY_WHOLESALE_API_KEY= # shopify admin api token
+...
+...
+```
+
+Create `lib/config/config.ts`
+
+```bash
+cp lib/config/example.config.ts lib/config/config.ts
+```
+
+or create file with:
+
+```typescript
+import { config } from 'dotenv';
+
+config();
+
+export const env = {
+  SHOPIFY_API_VERSION: process.env.SHOPIFY_API_VERSION || '2024-07',
+  SECRET_KEY: process.env.SECRET_KEY || '',
+  SHOPIFY_RETAIL_STORE: process.env.SHOPIFY_RETAIL_STORE || '',
+  SHOPIFY_RETAIL_API_KEY: process.env.SHOPIFY_RETAIL_API_KEY || '',
+  SHOPIFY_WHOLESALE_STORE: process.env.SHOPIFY_WHOLESALE_STORE || '',
+  SHOPIFY_WHOLESALE_API_KEY: process.env.SHOPIFY_WHOLESALE_API_KEY || '',
+};
+
+export const stores = {
+  retail: {
+    store: process.env.SHOPIFY_RETAIL_STORE,
+    apiKey: process.env.SHOPIFY_RETAIL_API_KEY,
+  },
+  wholesale: {
+    store: process.env.SHOPIFY_WHOLESALE_STORE,
+    apiKey: process.env.SHOPIFY_WHOLESALE_API_KEY,
+  },
+};
+```
+
 [Dependency Bundling](./BUNDLE.md)
 
 ## Deploy

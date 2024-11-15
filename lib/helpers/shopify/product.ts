@@ -3,23 +3,23 @@ import {
   shopifyAdmin,
   createShopifyError,
   createShopifyUserError,
-} from '../../utils/shopify.js';
-import { defaultVendor } from '../../const.js';
-import { productByHandle } from '../../handlers/queries/index.js';
+} from '../../utils/shopify';
+import { defaultVendor } from '../../const';
+import { productByHandle } from '../../handlers/queries/index';
 import {
   productCreate,
   productUpdate,
   productVariantsBulkCreate,
   productVariantsBulkUpdate,
-} from '../../handlers/mutations/index.js';
+} from '../../handlers/mutations/index';
 import type {
   ProductByHandleQuery,
   ProductCreateMutation,
   ProductUpdateMutation,
   ProductVariantsBulkCreateMutation,
   ProductVariantsBulkUpdateMutation,
-} from '../../types/admin.generated.js';
-import type { Maybe } from '../../types/admin.types.js';
+} from '../../types/admin.generated';
+import type { Maybe } from '../../types/admin.types';
 
 type NetSuiteItem = {
   title: string;

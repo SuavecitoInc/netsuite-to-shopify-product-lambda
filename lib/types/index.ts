@@ -1,4 +1,4 @@
-import type { Maybe } from './admin.types.js';
+import type { Maybe } from './admin.types';
 
 export type NetSuiteItem = {
   title: string;
