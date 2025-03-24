@@ -1,5 +1,7 @@
 import fetch from 'node-fetch';
 import shopifyConfig from '../config/shopify';
+import type { ShopifyStore } from '../config/shopify';
+import { Shop } from '../types/admin.types';
 
 type ShopifyResponse<T> = {
   // status: number;
@@ -8,7 +10,7 @@ type ShopifyResponse<T> = {
 };
 
 export async function shopifyAdmin<T>(
-  store: string,
+  store: ShopifyStore,
   query: string,
   variables?: Record<string, unknown>
 ): Promise<ShopifyResponse<T>> {
@@ -39,7 +41,7 @@ export async function shopifyAdmin<T>(
 }
 
 export async function shopifyAdminRest(
-  store: string,
+  store: ShopifyStore,
   endpoint: string,
   method: 'GET' | 'POST' | 'PUT' | 'DELETE' = 'GET',
   data?: Record<string, unknown>
@@ -86,7 +88,7 @@ export function createShopifyUserError(errors: { message: string }[]) {
 }
 
 export function createShopifyProductUrl(
-  shopifyStore: string,
+  shopifyStore: ShopifyStore,
   productId: string
 ) {
   const shop = shopifyConfig.stores[shopifyStore].store;
