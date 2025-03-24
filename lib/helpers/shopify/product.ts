@@ -20,6 +20,7 @@ import type {
   ProductVariantsBulkUpdateMutation,
 } from '../../types/admin.generated';
 import type { Maybe } from '../../types/admin.types';
+import type { ShopifyStore } from '../../config/shopify';
 
 type NetSuiteItem = {
   title: string;
@@ -102,7 +103,7 @@ type ShopifyProductResult = {
 };
 
 async function createShopifyVariants(
-  store: string,
+  store: ShopifyStore,
   productId: string,
   variants: ShopifyProductData['variants']
 ) {
@@ -128,7 +129,10 @@ async function createShopifyVariants(
   return response;
 }
 
-async function createShopifyProduct(store: string, data: ShopifyProductData) {
+async function createShopifyProduct(
+  store: ShopifyStore,
+  data: ShopifyProductData
+) {
   const productInput = {
     input: {
       title: data.title,
@@ -157,7 +161,7 @@ async function createShopifyProduct(store: string, data: ShopifyProductData) {
   return response;
 }
 
-async function createProduct(store: string, data: ShopifyProductData) {
+async function createProduct(store: ShopifyStore, data: ShopifyProductData) {
   const productResponse = await createShopifyProduct(store, data);
 
   if (!productResponse?.data?.productCreate?.product) {
@@ -180,7 +184,7 @@ async function createProduct(store: string, data: ShopifyProductData) {
 }
 
 async function updateShopifyVariants(
-  store: string,
+  store: ShopifyStore,
   productId: string,
   variants: ShopifyProductData['variants']
 ) {
@@ -207,7 +211,7 @@ async function updateShopifyVariants(
 }
 
 async function updateShopifyProduct(
-  store: string,
+  store: ShopifyStore,
   sProd: ShopifyProductResult,
   data: ShopifyProductData,
   id: string
@@ -247,7 +251,7 @@ async function updateShopifyProduct(
 }
 
 async function updateProduct(
-  store: string,
+  store: ShopifyStore,
   sProd: ShopifyProductResult,
   data: ShopifyProductData,
   id: string
@@ -287,7 +291,10 @@ async function updateProduct(
   return productResponse;
 }
 
-async function searchShopifyProductByHandle(store: string, handle: string) {
+async function searchShopifyProductByHandle(
+  store: ShopifyStore,
+  handle: string
+) {
   const response = await shopifyAdmin<ProductByHandleQuery>(
     store,
     productByHandle,
@@ -342,7 +349,7 @@ async function searchShopifyProductByHandle(store: string, handle: string) {
 }
 
 export async function shopifyProduct(
-  store: string,
+  store: ShopifyStore,
   item: NetSuiteItem
 ): Promise<string> {
   console.log('++++++++++ SHOPIFY PRODUCT ++++++++++');

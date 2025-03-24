@@ -1,9 +1,10 @@
 import { shopifyProduct, verifyRequest } from '../helpers/index';
 import { createShopifyProductUrl } from '../utils/shopify';
 import type { NetSuiteItem } from '../types/index';
+import type { ShopifyStore } from '../config/shopify';
 
 type EventBody = {
-  shopifyStore: string;
+  shopifyStore: ShopifyStore;
   product: NetSuiteItem;
 };
 

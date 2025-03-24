@@ -9,13 +9,15 @@ declare global {
       // wholesale
       SHOPIFY_WHOLESALE_STORE: string;
       SHOPIFY_WHOLESALE_API_KEY: string;
-      SHOPIFY_ADMIN_API_KEY: string;
-      SHOPIFY_STORE: string;
-      SHOPIFY_ACCESS_TOKEN: string;
-      SENTRY_DSN: string;
-      SECRET_KEY: string;
-      // yotpo
-      YOTPO_SECRET_KEY: string;
+      // mexico
+      SHOPIFY_MEXICO_RETAIL_STORE: string;
+      SHOPIFY_MEXICO_RETAIL_API_KEY: string;
+      // canada
+      SHOPIFY_CANADA_RETAIL_STORE: string;
+      SHOPIFY_CANADA_RETAIL_API_KEY: string;
+      // barbershop-cart
+      SHOPIFY_BARBERSHOP_CART_STORE: string;
+      SHOPIFY_BARBERSHOP_CART_API_KEY: string;
     }
   }
 }
