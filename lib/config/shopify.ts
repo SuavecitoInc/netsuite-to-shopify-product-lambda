@@ -15,6 +15,6 @@ const shopifyConfig: ShopifyConfig = {
   stores,
 };
 
-export type ShopifyStore = keyof ShopifyConfig['stores'];
+export type ShopifyStore = keyof typeof stores;
 
 export default shopifyConfig;
