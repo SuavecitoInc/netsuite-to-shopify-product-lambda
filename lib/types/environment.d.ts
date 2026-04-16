@@ -18,6 +18,10 @@ declare global {
       // barbershop-cart
       SHOPIFY_BARBERSHOP_CART_STORE: string;
       SHOPIFY_BARBERSHOP_CART_API_KEY: string;
+      // tresnoir
+      SHOPIFY_TRES_NOIR_STORE: string;
+      SHOPIFY_TRES_NOIR_API_KEY: string;
+      [key: string]: string;
     }
   }
 }

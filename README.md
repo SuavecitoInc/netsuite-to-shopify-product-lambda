@@ -38,7 +38,7 @@ Environmental Variables
 
 ```bash
 # shopify
-SHOPIFY_API_VERSION=2024-07 # shopify admin api version
+SHOPIFY_API_VERSION=2026-01 # shopify admin api version
 SECRET_KEY= # random string used for hash / digest
 SHOPIFY_RETAIL_STORE= # the shopify store name without the .myshopify.com
 SHOPIFY_RETAIL_API_KEY= # shopify admin api token
