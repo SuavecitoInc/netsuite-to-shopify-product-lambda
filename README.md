@@ -62,7 +62,7 @@ import { config } from 'dotenv';
 config();
 
 export const env = {
-  SHOPIFY_API_VERSION: process.env.SHOPIFY_API_VERSION || '2024-07',
+  SHOPIFY_API_VERSION: process.env.SHOPIFY_API_VERSION || '2026-01',
   SECRET_KEY: process.env.SECRET_KEY || '',
   SHOPIFY_RETAIL_STORE: process.env.SHOPIFY_RETAIL_STORE || '',
   SHOPIFY_RETAIL_API_KEY: process.env.SHOPIFY_RETAIL_API_KEY || '',

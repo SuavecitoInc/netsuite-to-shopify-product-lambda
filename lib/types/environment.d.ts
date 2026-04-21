@@ -21,6 +21,9 @@ declare global {
       // tresnoir
       SHOPIFY_TRES_NOIR_STORE: string;
       SHOPIFY_TRES_NOIR_API_KEY: string;
+      // gunthers
+      SHOPIFY_GUNTHERS_STORE: string;
+      SHOPIFY_GUNTHERS_API_KEY: string;
       [key: string]: string;
     }
   }
